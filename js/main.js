@@ -1,3 +1,43 @@
+// ========== Lazy Image Loading (Blur-Up) ==========
+(() => {
+    const lazyImgs = document.querySelectorAll('img.lazy-img[data-src]');
+    
+    const loadImage = (img) => {
+        const realSrc = img.dataset.src;
+        if (!realSrc) return;
+        const temp = new Image();
+        temp.onload = () => {
+            img.src = realSrc;
+            img.classList.add('loaded');
+            delete img.dataset.src;
+        };
+        temp.src = realSrc;
+    };
+
+    // Hero image: load immediately
+    const heroImg = document.querySelector('.hero-bg .lazy-img[data-src]');
+    if (heroImg) loadImage(heroImg);
+
+    // Other images: use IntersectionObserver
+    if ('IntersectionObserver' in window) {
+        const imgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadImage(entry.target);
+                    imgObserver.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '200px 0px' });
+
+        lazyImgs.forEach(img => {
+            if (img !== heroImg) imgObserver.observe(img);
+        });
+    } else {
+        // Fallback: load all
+        lazyImgs.forEach(loadImage);
+    }
+})();
+
 // ========== Navbar Scroll Effect ==========
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
