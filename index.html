@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Perception Box — 无人机感知算法嵌入式计算盒</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">◈</span> Drone Perception Box
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">首页</a></li>
+                <li><a href="#product">产品</a></li>
+                <li><a href="#solutions">解决方案</a></li>
+                <li><a href="#developer">开发者</a></li>
+                <li><a href="#pricing">定价</a></li>
+                <li><a href="#news">资讯</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">预约演示</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="images/hero_banner.png" alt="端云协同概念图" loading="eager">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">端云协同，让无人机看懂世界</h1>
+            <p class="hero-subtitle">基于 RK3588 的边缘 AI 全栈管理平台 — 从算法开发、数据标注、模型训练到一键部署，一站式闭环交付</p>
+            <div class="hero-cta">
+                <a href="#product" class="btn btn-primary">立即体验</a>
+                <a href="#contact" class="btn btn-outline">预约演示</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>向下滚动</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- 痛点引入 -->
+    <section class="pain-points" id="painpoints">
+        <div class="container">
+            <h2 class="section-title">三大核心痛点，一个平台解决</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">🔧</div>
+                    <h3>算法部署碎片化</h3>
+                    <p class="pain-desc">不同无人机平台、不同芯片、不同框架，每次部署都是一场战争</p>
+                    <div class="pain-divider"></div>
+                    <p class="pain-solution">统一推理引擎，RKNN/ONNX/TensorRT 多框架自适应，2 秒热切换</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🔄</div>
+                    <h3>远程升级困难</h3>
+                    <p class="pain-desc">设备散布在山区、河道、高速公路，固件升级靠人跑现场</p>
+                    <div class="pain-divider"></div>
+                    <p class="pain-solution">OTA 空中升级，差分包 + 断点续传 + 自动回滚，灰度发布策略</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🔗</div>
+                    <h3>端云协同低效</h3>
+                    <p class="pain-desc">标注数据回不来，训练模型下不去，算法迭代周期以月计</p>
+                    <div class="pain-divider"></div>
+                    <p class="pain-solution">困难样本自动回传 → 在线标注 → 云端训练 → OTA 推送，闭环周期缩短至天级</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 三大交付件 -->
+    <section class="deliverables">
+        <div class="container">
+            <h2 class="section-title">三大交付件，灵活组合</h2>
+            <div class="deliver-grid">
+                <div class="deliver-card">
+                    <div class="deliver-icon">📦</div>
+                    <h3>计算盒硬件 + 设备端软件</h3>
+                    <p>RK3588 双核 NPU 6TOPS 算力，多进程推理引擎，MAVLink/ZMQ 飞控直连，脱离云端也能独立作战</p>
+                    <a href="#product" class="card-link">了解更多 →</a>
+                </div>
+                <div class="deliver-card">
+                    <div class="deliver-icon">☁️</div>
+                    <h3>云端管理平台</h3>
+                    <p>算法仓库 + 设备管理 + OTA 调度 + 灰度发布，Prometheus 全链路监控，一个平台管千台设备</p>
+                    <a href="#product" class="card-link">了解更多 →</a>
+                </div>
+                <div class="deliver-card">
+                    <div class="deliver-icon">🏷️</div>
+                    <h3>数据标注与训练系统</h3>
+                    <p>集成 Label Studio，困难样本自动入库，标注完成即触发训练，模型血缘全程可追溯</p>
+                    <a href="#product" class="card-link">了解更多 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心数字 -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="6">0</span>
+                    <span class="stat-unit">TOPS</span>
+                    <span class="stat-desc">NPU 峰值算力</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="2">0</span>
+                    <span class="stat-unit">秒</span>
+                    <span class="stat-desc">算法热切换</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="120">0</span>
+                    <span class="stat-unit">+</span>
+                    <span class="stat-desc">覆盖应用场景</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number-text">天级</span>
+                    <span class="stat-unit">闭环</span>
+                    <span class="stat-desc">标注→训练→部署</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section class="product" id="product">
+        <!-- 硬件参数 -->
+        <div class="product-section">
+            <div class="container">
+                <h2 class="section-title">硬件：工业级边缘计算终端</h2>
+                <div class="product-hero">
+                    <div class="product-image">
+                        <img src="images/hardware_showcase.png" alt="计算盒硬件展示" loading="lazy">
+                    </div>
+                    <div class="product-specs">
+                        <h3>Drone Perception Box</h3>
+                        <div class="spec-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">主芯片</span>
+                                <span class="spec-value">瑞芯微 RK3588 SoC</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">AI 算力</span>
+                                <span class="spec-value">双核 NPU，6 TOPS（INT8）</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">GPU</span>
+                                <span class="spec-value">Mali-G610 MP4</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">视频输入</span>
+                                <span class="spec-value">USB / MIPI 相机，1080p@30fps</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">扩展传感器</span>
+                                <span class="spec-value">LiDAR 点云数据接口</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">通信协议</span>
+                                <span class="spec-value">MAVLink / ZMQ / WebSocket / RTSP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">飞控兼容</span>
+                                <span class="spec-value">PX4 / ArduPilot</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">推理框架</span>
+                                <span class="spec-value">RKNN / ONNX / TensorRT / PyTorch</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">模型驻留</span>
+                                <span class="spec-value">最多 3 个模型同时驻留 NPU</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">安全机制</span>
+                                <span class="spec-value">JWT + 签名校验 + 限流 + 恶意扫描</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 三层架构 -->
+        <div class="product-section architecture-section">
+            <div class="container">
+                <h2 class="section-title">三层架构，各司其职</h2>
+                <div class="arch-image">
+                    <img src="images/system_architecture.png" alt="系统架构图" loading="lazy">
+                </div>
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-layer">HAL</div>
+                        <h3>硬件抽象层</h3>
+                        <p>屏蔽硬件差异，统一计算资源。NPU/GPU 异构调度，RK3588/x86_64 多平台自适应，传感器即插即用。</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-layer">Core</div>
+                        <h3>核心层</h3>
+                        <p>多进程推理引擎规避 GIL 瓶颈，算法 2 秒热切换。OTA 状态机驱动升级，插件系统沙箱隔离。</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-layer">Interaction</div>
+                        <h3>交互层</h3>
+                        <p>FastAPI + Vue3 Web 管理后台，WebSocket 实时推送。MAVLink 飞控直连，ZMQ 支持 100MB 大数据传输。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 云端管理平台 -->
+        <div class="product-section cloud-section">
+            <div class="container">
+                <h2 class="section-title">云端管理平台：一个平台，管理一切</h2>
+                <div class="cloud-hero">
+                    <img src="images/cloud_dashboard.png" alt="云端控制台" loading="lazy">
+                </div>
+                <div class="cloud-features">
+                    <div class="cloud-feature">
+                        <h4>算法仓库</h4>
+                        <p>全生命周期管理：draft → testing → released → deprecated，差分升级包自动生成</p>
+                    </div>
+                    <div class="cloud-feature">
+                        <h4>设备管理</h4>
+                        <p>设备注册/分组/状态追踪，心跳超时检测（60秒），固件版本管理</p>
+                    </div>
+                    <div class="cloud-feature">
+                        <h4>OTA 调度</h4>
+                        <p>批量升级 + 灰度发布，失败率超 10% 自动暂停，Celery 异步调度</p>
+                    </div>
+                    <div class="cloud-feature">
+                        <h4>推送服务</h4>
+                        <p>全量/分组/灰度/定时四种策略，设备级状态追踪，失败自动重试</p>
+                    </div>
+                    <div class="cloud-feature">
+                        <h4>认证与权限</h4>
+                        <p>JWT 双 Token + 三级 RBAC（admin/operator/viewer）</p>
+                    </div>
+                    <div class="cloud-feature">
+                        <h4>监控告警</h4>
+                        <p>Prometheus + Grafana + Alertmanager，15 秒采集间隔</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据标注闭环 -->
+        <div class="product-section pipeline-section">
+            <div class="container">
+                <h2 class="section-title">从数据到部署，天级闭环迭代</h2>
+                <div class="pipeline-image">
+                    <img src="images/labeling_pipeline.png" alt="标注训练闭环" loading="lazy">
+                </div>
+                <div class="pipeline-steps">
+                    <div class="pipeline-step">
+                        <div class="step-num">01</div>
+                        <h4>设备端采集</h4>
+                        <p>自动识别困难样本（低置信度/边界案例）</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">02</div>
+                        <h4>自动回传</h4>
+                        <p>困难样本上传至 MinIO，保留设备端预注释</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">03</div>
+                        <h4>在线标注</h4>
+                        <p>Label Studio 自动创建任务，角色权限同步</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">04</div>
+                        <h4>模型训练</h4>
+                        <p>标注完成即触发训练，Celery 异步执行</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">05</div>
+                        <h4>模型血缘</h4>
+                        <p>数据集版本/训练配置/基础模型全程可追溯</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">06</div>
+                        <h4>OTA 部署</h4>
+                        <p>模型转换 → 灰度推送 → 设备自动更新</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解决方案 -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <h2 class="section-title">解决方案与应用场景</h2>
+            <p class="section-subtitle">覆盖 120+ 细分场景，四大领域全面覆盖</p>
+
+            <div class="solution-tabs">
+                <button class="tab-btn active" data-tab="inspection">低空巡检监测</button>
+                <button class="tab-btn" data-tab="traffic">交通态势感知</button>
+                <button class="tab-btn" data-tab="emergency">应急与安防</button>
+                <button class="tab-btn" data-tab="roadside">路侧固定感知</button>
+            </div>
+
+            <!-- 巡检监测 -->
+            <div class="tab-content active" id="tab-inspection">
+                <div class="solution-layout">
+                    <div class="solution-image">
+                        <img src="images/scenario_aerial_inspection.png" alt="低空巡检监测" loading="lazy">
+                    </div>
+                    <div class="solution-info">
+                        <h3>空中之眼，基础设施的智能守护者</h3>
+                        <p>无人机搭载相机采集，计算盒机载或地面站实时分析。覆盖公路、桥梁、隧道、电力线路、管廊等基础设施全场景巡检。</p>
+                        <ul class="solution-list">
+                            <li>高速公路路面病害巡检 — 裂缝、坑洞、沉陷、车辙</li>
+                            <li>桥梁表观缺陷检测 — 铺装破损、伸缩缝异常、桥墩裂缝</li>
+                            <li>交通标志标线巡检 — 遮挡/缺失/褪色、标线磨损</li>
+                            <li>隧道洞口边坡巡检 — 边坡滑塌、落石风险</li>
+                            <li>山区公路地质灾害巡查 — 滑坡、泥石流、崩塌</li>
+                            <li>河道桥梁水位监测 — 汛期水位变化、漂浮物堆积</li>
+                        </ul>
+                        <p class="solution-note">覆盖 30+ 细分巡检场景，预装自然灾害监测/基础设施巡检算法，开箱即用。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 交通态势 -->
+            <div class="tab-content" id="tab-traffic">
+                <div class="solution-layout">
+                    <div class="solution-image">
+                        <img src="images/scenario_traffic.png" alt="交通态势感知" loading="lazy">
+                    </div>
+                    <div class="solution-info">
+                        <h3>上帝视角，交通运行尽在掌握</h3>
+                        <p>无人机高空视角采集大范围交通场景，计算盒实时分析交通流量、轨迹、冲突和服务水平。</p>
+                        <ul class="solution-list">
+                            <li>大范围交通流量统计 — 多车道、多方向精确计数</li>
+                            <li>路口转向比分析 — 左转/直行/右转比例统计</li>
+                            <li>车辆轨迹提取与分析 — 完整运动轨迹记录</li>
+                            <li>交叉口冲突点分析 — 车-车、车-人冲突识别</li>
+                            <li>信号灯配时效果评估 — 绿灯利用率分析</li>
+                            <li>区域车辆密度热力图 — 分布密度可视化</li>
+                        </ul>
+                        <p class="solution-note">覆盖 30+ 交通态势感知场景，为交通规划、信号优化、拥堵治理提供数据支撑。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 应急安防 -->
+            <div class="tab-content" id="tab-emergency">
+                <div class="solution-layout">
+                    <div class="solution-image">
+                        <img src="images/scenario_emergency.png" alt="应急与安防" loading="lazy">
+                    </div>
+                    <div class="solution-info">
+                        <h3>快速响应，空中态势一目了然</h3>
+                        <p>无人机快速抵达现场，计算盒实时分析，面向应急救援、安防管控、执法取证。</p>
+                        <ul class="solution-list">
+                            <li>交通事故现场快速勘查 — 航拍建模、责任判定</li>
+                            <li>高速公路事故应急侦察 — 定位、拥堵范围、救援路径</li>
+                            <li>危化品泄漏扩散监测 — 泄漏范围实时追踪</li>
+                            <li>山区道路塌方应急评估 — 体量估算、绕行评估</li>
+                            <li>重点车辆跟踪 — 嫌疑车辆空中持续跟踪</li>
+                            <li>灾后道路损毁评估 — 通行能力快速评估</li>
+                        </ul>
+                        <p class="solution-note">覆盖 30+ 应急安防场景，从事故勘查到灾后评估，分秒必争。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 路侧感知 -->
+            <div class="tab-content" id="tab-roadside">
+                <div class="solution-layout">
+                    <div class="solution-image">
+                        <img src="images/scenario_roadside.png" alt="路侧固定感知" loading="lazy">
+                    </div>
+                    <div class="solution-info">
+                        <h3>7×24 不间断，道路安全的数字哨兵</h3>
+                        <p>计算盒/一体相机部署在路侧杆件、隧道、收费站等固定点位，全天候实时检测。</p>
+                        <ul class="solution-list">
+                            <li>交通违法检测 — 闯红灯、逆行、违法变道、未戴头盔</li>
+                            <li>交通事件检测 — 异常停车、事故、抛洒物</li>
+                            <li>隧道安全监测 — 烟雾/火灾、逆行、跟车过近</li>
+                            <li>车辆特征识别 — 车牌 ANPR、车型/车色/品牌</li>
+                            <li>收费站管理 — ETC 闯杆/逃费、通行效率</li>
+                            <li>恶劣天气自适应 — 能见度检测和限速联动</li>
+                        </ul>
+                        <p class="solution-note">覆盖 30+ 路侧感知场景，构建全域交通感知网络。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 开发者生态 -->
+    <section class="developer" id="developer">
+        <div class="container">
+            <h2 class="section-title">开发者与生态</h2>
+            <p class="section-subtitle">为开发者而生的开放生态</p>
+
+            <div class="dev-hero-image">
+                <img src="images/developer_ecosystem.png" alt="开发者生态" loading="lazy">
+            </div>
+
+            <!-- 技术栈 -->
+            <div class="tech-stack">
+                <h3>技术栈</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <span class="tech-label">设备端</span>
+                        <span class="tech-value">Python 3.11 · FastAPI · SQLite · APScheduler</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">云端</span>
+                        <span class="tech-value">Python 3.11 · FastAPI · Celery · Redis · MinIO</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">前端</span>
+                        <span class="tech-value">Vue 3 · TypeScript · Vite</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">推理</span>
+                        <span class="tech-value">RKNN Toolkit 2 · ONNX Runtime · TensorRT · PyTorch</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">通信</span>
+                        <span class="tech-value">REST API · WebSocket · MAVLink 2.0 · ZeroMQ · RTSP</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">部署</span>
+                        <span class="tech-value">Docker · Docker Compose · Nginx · Prometheus · Grafana</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SDK -->
+            <div class="sdk-section">
+                <h3>SDK 工具链</h3>
+                <div class="sdk-grid">
+                    <div class="sdk-card">
+                        <h4>Perception Box SDK</h4>
+                        <p>主机端设备通信库，算法执行接口，结果处理工具</p>
+                    </div>
+                    <div class="sdk-card">
+                        <h4>Algorithm SDK</h4>
+                        <p>算法开发基类，图像处理工具（resize/normalize/hwc_to_chw），Detection 数据类</p>
+                    </div>
+                    <div class="sdk-card">
+                        <h4>Plugin Dev Tool (CLI)</h4>
+                        <div class="code-block">
+<pre><code>pb-cli init        # 项目脚手架
+pb-cli convert     # 模型转换
+pb-cli package     # 插件打包
+pb-cli validate    # manifest 验证
+pb-cli test        # 本地测试
+pb-cli benchmark   # 性能基准
+pb-cli upload      # 一键上传</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 未来规划 -->
+            <div class="roadmap">
+                <h3>未来规划</h3>
+                <div class="roadmap-grid">
+                    <div class="roadmap-item">
+                        <span class="roadmap-icon">🔗</span>
+                        <h4>OpenClaw 集成</h4>
+                        <p>DAG 任务编排，条件分支 + 并行执行 + 资源感知调度</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <span class="roadmap-icon">🧠</span>
+                        <h4>大模型推理</h4>
+                        <p>集成轻量化 LLM，场景理解与自然语言交互</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <span class="roadmap-icon">🌐</span>
+                        <h4>数字孪生对接</h4>
+                        <p>感知结果实时映射到三维场景</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <span class="roadmap-icon">📡</span>
+                        <h4>5G/卫星通信</h4>
+                        <p>适配远洋/山区等无地面网络场景</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <span class="roadmap-icon">🔀</span>
+                        <h4>多传感器融合</h4>
+                        <p>视觉 + LiDAR + 红外 + 毫米波雷达</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <span class="roadmap-icon">🤝</span>
+                        <h4>边缘-边缘协同</h4>
+                        <p>多计算盒 P2P 通信与协同推理</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 定价 -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">版本与定价</h2>
+            <p class="section-subtitle">灵活组合，按需选择</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>基础版</h3>
+                        <p class="pricing-target">已有管理平台的客户</p>
+                    </div>
+                    <div class="pricing-includes">计算盒 + 设备端软件</div>
+                    <ul class="pricing-features">
+                        <li class="included">边缘推理引擎</li>
+                        <li class="included">Web 管理后台</li>
+                        <li class="included">MAVLink/ZMQ 接口</li>
+                        <li class="included">预装算法（3款）</li>
+                        <li class="excluded">云端算法仓库</li>
+                        <li class="excluded">设备管理 &amp; OTA</li>
+                        <li class="excluded">Label Studio 标注</li>
+                        <li class="excluded">云端托管运维</li>
+                    </ul>
+                    <div class="pricing-deploy">设备端独立运行</div>
+                    <a href="#contact" class="btn btn-outline">联系销售</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">推荐</div>
+                    <div class="pricing-header">
+                        <h3>标准版</h3>
+                        <p class="pricing-target">需要完整设备管理能力</p>
+                    </div>
+                    <div class="pricing-includes">计算盒 + 云端管理平台（私有化）</div>
+                    <ul class="pricing-features">
+                        <li class="included">边缘推理引擎</li>
+                        <li class="included">Web 管理后台</li>
+                        <li class="included">MAVLink/ZMQ 接口</li>
+                        <li class="included">预装算法（3款）</li>
+                        <li class="included">云端算法仓库</li>
+                        <li class="included">设备管理 &amp; OTA &amp; 灰度发布</li>
+                        <li class="included">Prometheus 监控</li>
+                        <li class="excluded">Label Studio 标注</li>
+                    </ul>
+                    <div class="pricing-deploy">客户私有化部署</div>
+                    <a href="#contact" class="btn btn-primary">联系销售</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>专业版</h3>
+                        <p class="pricing-target">需要算法迭代闭环</p>
+                    </div>
+                    <div class="pricing-includes">标准版 + Label Studio 标注系统</div>
+                    <ul class="pricing-features">
+                        <li class="included">标准版全部功能</li>
+                        <li class="included">Label Studio 标注</li>
+                        <li class="included">困难样本闭环</li>
+                        <li class="included">模型训练 &amp; 血缘追踪</li>
+                        <li class="included">模型转换（ONNX→RKNN）</li>
+                        <li class="excluded">云端托管运维</li>
+                        <li class="excluded">多租户隔离</li>
+                    </ul>
+                    <div class="pricing-deploy">客户私有化部署</div>
+                    <a href="#contact" class="btn btn-outline">联系销售</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>SaaS 版</h3>
+                        <p class="pricing-target">不想自建服务器</p>
+                    </div>
+                    <div class="pricing-includes">云端平台托管 + 计算盒</div>
+                    <ul class="pricing-features">
+                        <li class="included">专业版全部功能</li>
+                        <li class="included">云端托管运维</li>
+                        <li class="included">多租户隔离</li>
+                        <li class="included">弹性扩容</li>
+                        <li class="included">7×24 技术支持</li>
+                        <li class="included">SLA 保障</li>
+                    </ul>
+                    <div class="pricing-deploy">我方云端托管</div>
+                    <a href="#contact" class="btn btn-outline">联系销售</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品资讯 -->
+    <section class="news" id="news">
+        <div class="container">
+            <h2 class="section-title">产品资讯</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-meta">
+                        <span class="news-tag tag-product">产品动态</span>
+                        <span class="news-date">2025.06</span>
+                    </div>
+                    <h3>Drone Perception Box v2.0 发布</h3>
+                    <p>新增 RTSP 多源视频管理、算法参数模板、视频流检测叠加，推理性能提升 40%</p>
+                </article>
+                <article class="news-card">
+                    <div class="news-meta">
+                        <span class="news-tag tag-case">行业案例</span>
+                        <span class="news-date">2025.05</span>
+                    </div>
+                    <h3>某省高速公路路面病害巡检项目落地</h3>
+                    <p>覆盖 500km 高速公路，裂缝检出率 95%+，巡检效率提升 10 倍</p>
+                </article>
+                <article class="news-card">
+                    <div class="news-meta">
+                        <span class="news-tag tag-tech">技术分享</span>
+                        <span class="news-date">2025.04</span>
+                    </div>
+                    <h3>端云协同架构下的 OTA 升级最佳实践</h3>
+                    <p>差分包 + 灰度发布 + 自动回滚，千台设备零故障升级</p>
+                </article>
+                <article class="news-card">
+                    <div class="news-meta">
+                        <span class="news-tag tag-product">产品动态</span>
+                        <span class="news-date">2025.03</span>
+                    </div>
+                    <h3>插件开发工具链 CLI 正式开源</h3>
+                    <p>pb-cli 全套工具链开源，支持脚手架/打包/测试/上传一站式开发</p>
+                </article>
+                <article class="news-card">
+                    <div class="news-meta">
+                        <span class="news-tag tag-case">行业案例</span>
+                        <span class="news-date">2025.02</span>
+                    </div>
+                    <h3>城市交通态势感知系统试点</h3>
+                    <p>无人机 + 计算盒实时分析路口转向比，信号配时优化后通行效率提升 18%</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <h3>关于我们</h3>
+                    <p>Drone Perception Box 由长安大学团队研发，深耕无人机边缘智能与交通感知领域。我们致力于将前沿的 AI 算法与嵌入式计算技术相结合，为低空经济和智慧交通提供可靠的边缘智能解决方案。</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-label">研发团队</span>
+                            <span class="contact-value">长安大学</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">邮箱</span>
+                            <span class="contact-value">
+                                <a href="mailto:shijiesun@chd.edu.cn">shijiesun@chd.edu.cn</a>
+                            </span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">地址</span>
+                            <span class="contact-value">陕西省西安市南二环路中段 长安大学</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>合作咨询</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">公司/单位</label>
+                            <input type="text" id="company" name="company" placeholder="请输入公司或单位名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" required placeholder="请输入您的邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">需求描述</label>
+                            <textarea id="message" name="message" rows="4" placeholder="请简要描述您的需求"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">提交咨询</button>
+                        <p class="form-note">我们将在 24 小时内与您联系</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">◈</span> Drone Perception Box
+                    <p>端云协同，让无人机看懂世界</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#product">产品</a>
+                    <a href="#solutions">解决方案</a>
+                    <a href="#developer">开发者</a>
+                    <a href="#pricing">定价</a>
+                    <a href="#contact">联系我们</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2025 长安大学 · Drone Perception Box. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
